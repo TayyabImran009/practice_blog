@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import CutomUserCreationForm
 
 from django.contrib.auth.models import User
+from blog.models import *
 
 
 def sign_in(request):
@@ -61,4 +62,6 @@ def user_logout(request):
 
 @login_required(login_url='sign_in')
 def home(request):
-    return render(request,'authentication/home.html')
+    blogs = Blog.objects.all()
+    context = {'blogs':blogs}
+    return render(request,'authentication/home.html', context)
