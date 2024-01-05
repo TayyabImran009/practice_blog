@@ -1,0 +1,31 @@
+{% extends 'auth_base.html' %}
+{% load static %}
+
+<!-- For internal css -->
+{% block css %}
+
+<style>
+    body {
+        background-image: url({% static 'index/wp-content/uploads/2021/08/service-style1-area-pt.jpg' %})
+    }
+</style>
+
+{% endblock %}
+
+<!-- For internal content -->
+{% block content %}
+
+<div class="col-lg-12">
+    <div class="white_box mb_30" style="background: transparent;">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- For internal js -->
+{% block js %}
+{% endblock %}

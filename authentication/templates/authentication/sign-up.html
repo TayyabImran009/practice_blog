@@ -1,0 +1,71 @@
+{% extends 'auth_base.html' %}
+{% load static %}
+
+<!-- For internal css -->
+{% block css %}
+<style>
+    body {
+        background-image: url({% static 'index/wp-content/uploads/2021/08/service-style1-area-pt.jpg' %})
+    }
+</style>
+{% endblock %}
+
+<!-- For internal content -->
+{% block content %}
+
+<div class="col-lg-12">
+    <div class="white_box mb_30" style="background: transparent;">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+
+                <div class="modal-content cs_modal">
+                    <div class="modal-header justify-content-center theme_bg_1">
+                        <h5 class="modal-title text_white">Sign Up</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="" style="margin-bottom: 20px;">
+                                <input type="text" class="form-control" name="username"
+                                    placeholder="Enter username" style="margin: 0px;" required>
+                                <div class="white_card_body typography" style="color: red;">
+                                    {{ form.errors.username }}
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 20px;">
+                                <input type="email" class="form-control" name="email"
+                                    placeholder="Use same email which you use on other database " style="margin: 0px;" required>
+                                <div class="white_card_body typography" style="color: red;">
+                                    {{ form.errors.email }}
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 20px;">
+                                <input type="password" class="form-control" placeholder="Enter password"
+                                    name="password1" style="margin: 0px;" required>
+                                <div class="white_card_body typography" style="color: red;">
+                                    {{ form.errors.password1 }}
+                                </div>
+                            </div>
+                            <div class="" style="margin-bottom: 20px;">
+                                <input type="password" class="form-control"
+                                    placeholder="Enter the same password as before, for verification." name="password2"
+                                    style="margin: 0px;" required>
+                                <div class="white_card_body typography" style="color: red;">
+                                    {{ form.errors.password2 }}
+                                </div>
+                            </div>
+                            <button class="btn_1 full_width text-center" type="submit">Sign Up</button>
+                            <p>Already have an account? <a data-bs-toggle="modal" data-bs-target="#sing_up"
+                                    data-bs-dismiss="modal" href="{% url 'sign_in' %}"> Sign In</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- For internal js -->
+{% block js %}
+{% endblock %}
